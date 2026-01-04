@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<experiment name="IMU Streamer" shortName="IMUStreamer">
+<phyphox version="1.0">
+  <title>IMU Streamer</title>
+  <category>Custom</category>
+  <description>Streams IMU data via HTTP POST</description>
+
+  <data-containers>
+    <container size="0">accX</container>
+    <container size="0">accY</container>
+    <container size="0">accZ</container>
+    <container size="0">gyrX</container>
+    <container size="0">gyrY</container>
+    <container size="0">gyrZ</container>
+    <container size="0">time</container>
+  </data-containers>
+
+  <input>
+    <sensor type="accelerometer">
+      <output component="x">accX</output>
+      <output component="y">accY</output>
+      <output component="z">accZ</output>
+      <output component="t">time</output>
+    </sensor>
+    <sensor type="gyroscope">
+      <output component="x">gyrX</output>
+      <output component="y">gyrY</output>
+      <output component="z">gyrZ</output>
+      <output component="t">time</output>
+    </sensor>
+  </input>
 
   <network>
     <connection id="imuStream"
@@ -8,40 +36,35 @@
                 address="http://100.80.78.30:5000"
                 autoConnect="true"
                 interval="0.1">
-
       <send id="accel_x" type="buffer" datatype="number">accX</send>
       <send id="accel_y" type="buffer" datatype="number">accY</send>
       <send id="accel_z" type="buffer" datatype="number">accZ</send>
-
       <send id="gyro_x" type="buffer" datatype="number">gyrX</send>
       <send id="gyro_y" type="buffer" datatype="number">gyrY</send>
       <send id="gyro_z" type="buffer" datatype="number">gyrZ</send>
     </connection>
   </network>
 
-  <data>
-    <!-- Accelerometer -->
-    <sensor type="accelerometer">
-      <output component="x" buffer="accX"/>
-      <output component="y" buffer="accY"/>
-      <output component="z" buffer="accZ"/>
-    </sensor>
-
-    <!-- Gyroscope -->
-    <sensor type="gyroscope">
-      <output component="x" buffer="gyrX"/>
-      <output component="y" buffer="gyrY"/>
-      <output component="z" buffer="gyrZ"/>
-    </sensor>
-  </data>
-
-  <!-- REQUIRED: at least one valid view -->
-<views>
-  <view label="Main">
-    <subview label="Data">
-      <value label="Accel X" buffer="accX"/>
-    </subview>
-  </view>
-</views>
-
-</experiment>
+  <views>
+    <view label="IMU Data">
+      <graph label="Accelerometer">
+        <input axis="x">time</input>
+        <input axis="y">accX</input>
+        <input axis="y">accY</input>
+        <input axis="y">accZ</input>
+      </graph>
+      <graph label="Gyroscope">
+        <input axis="x">time</input>
+        <input axis="y">gyrX</input>
+        <input axis="y">gyrY</input>
+        <input axis="y">gyrZ</input>
+      </graph>
+      <value label="Accel X (m/s²)" buffer="accX" precision="3"/>
+      <value label="Accel Y (m/s²)" buffer="accY" precision="3"/>
+      <value label="Accel Z (m/s²)" buffer="accZ" precision="3"/>
+      <value label="Gyro X (rad/s)" buffer="gyrX" precision="3"/>
+      <value label="Gyro Y (rad/s)" buffer="gyrY" precision="3"/>
+      <value label="Gyro Z (rad/s)" buffer="gyrZ" precision="3"/>
+    </view>
+  </views>
+</phyphox>
