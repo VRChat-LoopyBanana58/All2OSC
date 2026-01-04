@@ -35,7 +35,7 @@
     <connection id="imuStream"
                 privacy="https://raw.githubusercontent.com/VRChat-LoopyBanana58/All2OSC/refs/heads/main/privacy.txt"
                 service="http/post"
-                address="http://100.80.78.30:5000"
+                address="100.80.78.30:5000"
                 autoConnect="true"
                 interval="0.1">
 
