@@ -11,7 +11,6 @@
     <container size="0">gyrX</container>
     <container size="0">gyrY</container>
     <container size="0">gyrZ</container>
-    <container size="0">time</container>
   </data-containers>
 
   <input>
@@ -19,13 +18,11 @@
       <output component="x">accX</output>
       <output component="y">accY</output>
       <output component="z">accZ</output>
-      <output component="t">time</output>
     </sensor>
     <sensor type="gyroscope">
       <output component="x">gyrX</output>
       <output component="y">gyrY</output>
       <output component="z">gyrZ</output>
-      <output component="t">time</output>
     </sensor>
   </input>
 
@@ -47,30 +44,6 @@
 
   <views>
     <view label="IMU Data">
-      <graph label="Accel X" labelX="Time (s)" labelY="Acceleration (m/s²)">
-        <input axis="x">time</input>
-        <input axis="y">accX</input>
-      </graph>
-      <graph label="Accel Y" labelX="Time (s)" labelY="Acceleration (m/s²)">
-        <input axis="x">time</input>
-        <input axis="y">accY</input>
-      </graph>
-      <graph label="Accel Z" labelX="Time (s)" labelY="Acceleration (m/s²)">
-        <input axis="x">time</input>
-        <input axis="y">accZ</input>
-      </graph>
-      <graph label="Gyro X" labelX="Time (s)" labelY="Angular rate (rad/s)">
-        <input axis="x">time</input>
-        <input axis="y">gyrX</input>
-      </graph>
-      <graph label="Gyro Y" labelX="Time (s)" labelY="Angular rate (rad/s)">
-        <input axis="x">time</input>
-        <input axis="y">gyrY</input>
-      </graph>
-      <graph label="Gyro Z" labelX="Time (s)" labelY="Angular rate (rad/s)">
-        <input axis="x">time</input>
-        <input axis="y">gyrZ</input>
-      </graph>
       <value label="Accel X (m/s²)" buffer="accX" precision="3"/>
       <value label="Accel Y (m/s²)" buffer="accY" precision="3"/>
       <value label="Accel Z (m/s²)" buffer="accZ" precision="3"/>
