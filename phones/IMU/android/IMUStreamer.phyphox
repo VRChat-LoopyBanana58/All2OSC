@@ -13,16 +13,9 @@
     <container size="1">gyrX</container>
     <container size="1">gyrY</container>
     <container size="1">gyrZ</container>
-
-    <container size="1">accX_out</container>
-    <container size="1">accY_out</container>
-    <container size="1">accZ_out</container>
-    <container size="1">gyrX_out</container>
-    <container size="1">gyrY_out</container>
-    <container size="1">gyrZ_out</container>
   </data-containers>
 
-  <!-- INPUT -->
+  <!-- INPUT SENSOR DEFINITIONS -->
   <input>
     <sensor type="accelerometer">
       <output component="x">accX</output>
@@ -36,45 +29,6 @@
       <output component="z">gyrZ</output>
     </sensor>
   </input>
-
-  <!-- ANALYSIS (required for UI) -->
-<analysis>
-  <formula>
-    <input>accX</input>
-    <output>accX_out</output>
-    <expression>x</expression>
-  </formula>
-
-  <formula>
-    <input>accY</input>
-    <output>accY_out</output>
-    <expression>x</expression>
-  </formula>
-
-  <formula>
-    <input>accZ</input>
-    <output>accZ_out</output>
-    <expression>x</expression>
-  </formula>
-
-  <formula>
-    <input>gyrX</input>
-    <output>gyrX_out</output>
-    <expression>x</expression>
-  </formula>
-
-  <formula>
-    <input>gyrY</input>
-    <output>gyrY_out</output>
-    <expression>x</expression>
-  </formula>
-
-  <formula>
-    <input>gyrZ</input>
-    <output>gyrZ_out</output>
-    <expression>x</expression>
-  </formula>
-</analysis>
 
   <!-- NETWORK STREAM -->
   <network>
@@ -95,27 +49,26 @@
     </connection>
   </network>
 
-  <!-- VIEWS (MUST USE <in>) -->
+  <!-- UI DISPLAY -->
   <views>
     <view label="IMU Data">
-      <value label="Accel X (m/s²)" precision="3">
-        <in>accX_out</in>
+      <value label="Accel X (m/s²)">
+        <input>accX</input>
       </value>
-      <value label="Accel Y (m/s²)" precision="3">
-        <in>accY_out</in>
+      <value label="Accel Y (m/s²)">
+        <input>accY</input>
       </value>
-      <value label="Accel Z (m/s²)" precision="3">
-        <in>accZ_out</in>
+      <value label="Accel Z (m/s²)">
+        <input>accZ</input>
       </value>
-
-      <value label="Gyro X (rad/s)" precision="3">
-        <in>gyrX_out</in>
+      <value label="Gyro X (rad/s)">
+        <input>gyrX</input>
       </value>
-      <value label="Gyro Y (rad/s)" precision="3">
-        <in>gyrY_out</in>
+      <value label="Gyro Y (rad/s)">
+        <input>gyrY</input>
       </value>
-      <value label="Gyro Z (rad/s)" precision="3">
-        <in>gyrZ_out</in>
+      <value label="Gyro Z (rad/s)">
+        <input>gyrZ</input>
       </value>
     </view>
   </views>
