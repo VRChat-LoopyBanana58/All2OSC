@@ -40,34 +40,38 @@
   <!-- ANALYSIS (required for UI) -->
 <analysis>
   <formula>
-    <in>accX</in>
-    <out>accX_out</out>
-    <expression>x</expression>
-  </formula>
-  <formula>
-    <in>accY</in>
-    <out>accY_out</out>
-    <expression>x</expression>
-  </formula>
-  <formula>
-    <in>accZ</in>
-    <out>accZ_out</out>
+    <input>accX</input>
+    <output>accX_out</output>
     <expression>x</expression>
   </formula>
 
   <formula>
-    <in>gyrX</in>
-    <out>gyrX_out</out>
+    <input>accY</input>
+    <output>accY_out</output>
     <expression>x</expression>
   </formula>
+
   <formula>
-    <in>gyrY</in>
-    <out>gyrY_out</out>
+    <input>accZ</input>
+    <output>accZ_out</output>
     <expression>x</expression>
   </formula>
+
   <formula>
-    <in>gyrZ</in>
-    <out>gyrZ_out</out>
+    <input>gyrX</input>
+    <output>gyrX_out</output>
+    <expression>x</expression>
+  </formula>
+
+  <formula>
+    <input>gyrY</input>
+    <output>gyrY_out</output>
+    <expression>x</expression>
+  </formula>
+
+  <formula>
+    <input>gyrZ</input>
+    <output>gyrZ_out</output>
     <expression>x</expression>
   </formula>
 </analysis>
