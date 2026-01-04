@@ -36,11 +36,12 @@
   </data>
 
   <!-- REQUIRED: at least one valid view -->
-  <views>
-    <view label="Status">
+<views>
+  <view label="Main">
+    <subview label="Data">
       <value label="Accel X" buffer="accX"/>
-      <value label="Gyro X" buffer="gyrX"/>
-    </view>
-  </views>
+    </subview>
+  </view>
+</views>
 
 </experiment>
