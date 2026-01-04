@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phyphox version="1.0">
+
   <title>IMU Streamer</title>
   <category>Custom</category>
   <description>Streams IMU data via HTTP POST</description>
 
+  <!-- DATA CONTAINERS -->
   <data-containers>
-    <container size="0">accX</container>
-    <container size="0">accY</container>
-    <container size="0">accZ</container>
-    <container size="0">gyrX</container>
-    <container size="0">gyrY</container>
-    <container size="0">gyrZ</container>
+    <container size="1">accX</container>
+    <container size="1">accY</container>
+    <container size="1">accZ</container>
+    <container size="1">gyrX</container>
+    <container size="1">gyrY</container>
+    <container size="1">gyrZ</container>
+
+    <container size="1">accX_out</container>
+    <container size="1">accY_out</container>
+    <container size="1">accZ_out</container>
+    <container size="1">gyrX_out</container>
+    <container size="1">gyrY_out</container>
+    <container size="1">gyrZ_out</container>
   </data-containers>
 
+  <!-- INPUT -->
   <input>
     <sensor type="accelerometer">
       <output component="x">accX</output>
       <output component="y">accY</output>
       <output component="z">accZ</output>
     </sensor>
+
     <sensor type="gyroscope">
       <output component="x">gyrX</output>
       <output component="y">gyrY</output>
@@ -26,6 +37,36 @@
     </sensor>
   </input>
 
+  <!-- ANALYSIS (required for UI) -->
+  <analysis>
+    <pass>
+      <in>accX</in>
+      <out>accX_out</out>
+    </pass>
+    <pass>
+      <in>accY</in>
+      <out>accY_out</out>
+    </pass>
+    <pass>
+      <in>accZ</in>
+      <out>accZ_out</out>
+    </pass>
+
+    <pass>
+      <in>gyrX</in>
+      <out>gyrX_out</out>
+    </pass>
+    <pass>
+      <in>gyrY</in>
+      <out>gyrY_out</out>
+    </pass>
+    <pass>
+      <in>gyrZ</in>
+      <out>gyrZ_out</out>
+    </pass>
+  </analysis>
+
+  <!-- NETWORK STREAM -->
   <network>
     <connection id="imuStream"
                 privacy="https://raw.githubusercontent.com/VRChat-LoopyBanana58/All2OSC/refs/heads/main/privacy.txt"
@@ -33,23 +74,40 @@
                 address="http://100.80.78.30:5000"
                 autoConnect="true"
                 interval="0.1">
+
       <send id="accel_x" type="buffer" datatype="number">accX</send>
       <send id="accel_y" type="buffer" datatype="number">accY</send>
       <send id="accel_z" type="buffer" datatype="number">accZ</send>
+
       <send id="gyro_x" type="buffer" datatype="number">gyrX</send>
       <send id="gyro_y" type="buffer" datatype="number">gyrY</send>
       <send id="gyro_z" type="buffer" datatype="number">gyrZ</send>
     </connection>
   </network>
 
+  <!-- VIEWS (MUST USE <in>) -->
   <views>
     <view label="IMU Data">
-      <value label="Accel X (m/s²)" buffer="accX" precision="3"/>
-      <value label="Accel Y (m/s²)" buffer="accY" precision="3"/>
-      <value label="Accel Z (m/s²)" buffer="accZ" precision="3"/>
-      <value label="Gyro X (rad/s)" buffer="gyrX" precision="3"/>
-      <value label="Gyro Y (rad/s)" buffer="gyrY" precision="3"/>
-      <value label="Gyro Z (rad/s)" buffer="gyrZ" precision="3"/>
+      <value label="Accel X (m/s²)" precision="3">
+        <in>accX_out</in>
+      </value>
+      <value label="Accel Y (m/s²)" precision="3">
+        <in>accY_out</in>
+      </value>
+      <value label="Accel Z (m/s²)" precision="3">
+        <in>accZ_out</in>
+      </value>
+
+      <value label="Gyro X (rad/s)" precision="3">
+        <in>gyrX_out</in>
+      </value>
+      <value label="Gyro Y (rad/s)" precision="3">
+        <in>gyrY_out</in>
+      </value>
+      <value label="Gyro Z (rad/s)" precision="3">
+        <in>gyrZ_out</in>
+      </value>
     </view>
   </views>
+
 </phyphox>
