@@ -36,9 +36,11 @@
   </data>
 
   <!-- REQUIRED: at least one valid view -->
-  <view label="Status">
-    <value label="Accel X" buffer="accX"/>
-    <value label="Gyro X" buffer="gyrX"/>
-  </view>
+  <views>
+    <view label="Status">
+      <value label="Accel X" buffer="accX"/>
+      <value label="Gyro X" buffer="gyrX"/>
+    </view>
+  </views>
 
 </experiment>
