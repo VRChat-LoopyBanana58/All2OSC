@@ -38,33 +38,39 @@
   </input>
 
   <!-- ANALYSIS (required for UI) -->
-  <analysis>
-    <pass>
-      <in>accX</in>
-      <out>accX_out</out>
-    </pass>
-    <pass>
-      <in>accY</in>
-      <out>accY_out</out>
-    </pass>
-    <pass>
-      <in>accZ</in>
-      <out>accZ_out</out>
-    </pass>
+<analysis>
+  <formula>
+    <in>accX</in>
+    <out>accX_out</out>
+    <expression>x</expression>
+  </formula>
+  <formula>
+    <in>accY</in>
+    <out>accY_out</out>
+    <expression>x</expression>
+  </formula>
+  <formula>
+    <in>accZ</in>
+    <out>accZ_out</out>
+    <expression>x</expression>
+  </formula>
 
-    <pass>
-      <in>gyrX</in>
-      <out>gyrX_out</out>
-    </pass>
-    <pass>
-      <in>gyrY</in>
-      <out>gyrY_out</out>
-    </pass>
-    <pass>
-      <in>gyrZ</in>
-      <out>gyrZ_out</out>
-    </pass>
-  </analysis>
+  <formula>
+    <in>gyrX</in>
+    <out>gyrX_out</out>
+    <expression>x</expression>
+  </formula>
+  <formula>
+    <in>gyrY</in>
+    <out>gyrY_out</out>
+    <expression>x</expression>
+  </formula>
+  <formula>
+    <in>gyrZ</in>
+    <out>gyrZ_out</out>
+    <expression>x</expression>
+  </formula>
+</analysis>
 
   <!-- NETWORK STREAM -->
   <network>
