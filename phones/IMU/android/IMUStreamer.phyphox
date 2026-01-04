@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<experiment name="IMU Streamer" shortName="IMUStreamer">
+
+  <!-- Privacy URL (required) -->
+  <network>
+    <connection id="imuStream"
+                privacy="https://raw.githubusercontent.com/VRChat-LoopyBanana58/All2OSC/refs/heads/main/privacy.txt"
+                service="http/post"
+                address="http://100.80.78.30:5000"
+                autoConnect="true"
+                interval="0.1">
+      <!-- Send last accelerometer buffer -->
+      <send id="accel_x" type="buffer" datatype="number">accelerometer_x</send>
+      <send id="accel_y" type="buffer" datatype="number">accelerometer_y</send>
+      <send id="accel_z" type="buffer" datatype="number">accelerometer_z</send>
+      <!-- Send last gyroscope buffer -->
+      <send id="gyro_x" type="buffer" datatype="number">gyroscope_x</send>
+      <send id="gyro_y" type="buffer" datatype="number">gyroscope_y</send>
+      <send id="gyro_z" type="buffer" datatype="number">gyroscope_z</send>
+    </connection>
+  </network>
+
+  <data>
+    <!-- Read raw accelerometer sensor -->
+    <sensor id="accelerometer_x">accelerometer_x</sensor>
+    <sensor id="accelerometer_y">accelerometer_y</sensor>
+    <sensor id="accelerometer_z">accelerometer_z</sensor>
+
+    <!-- Read raw gyroscope sensor -->
+    <sensor id="gyroscope_x">gyroscope_x</sensor>
+    <sensor id="gyroscope_y">gyroscope_y</sensor>
+    <sensor id="gyroscope_z">gyroscope_z</sensor>
+  </data>
+
+  <view>
+    <graph title="Accelerometer X" buffer="accelerometer_x" />
+    <graph title="Gyroscope X" buffer="gyroscope_x" />
+  </view>
+
+</experiment>
