@@ -47,16 +47,28 @@
 
   <views>
     <view label="IMU Data">
-      <graph label="Accelerometer" labelX="Time (s)" labelY="Acceleration (m/s²)">
+      <graph label="Accel X" labelX="Time (s)" labelY="Acceleration (m/s²)">
         <input axis="x">time</input>
         <input axis="y">accX</input>
+      </graph>
+      <graph label="Accel Y" labelX="Time (s)" labelY="Acceleration (m/s²)">
+        <input axis="x">time</input>
         <input axis="y">accY</input>
+      </graph>
+      <graph label="Accel Z" labelX="Time (s)" labelY="Acceleration (m/s²)">
+        <input axis="x">time</input>
         <input axis="y">accZ</input>
       </graph>
-      <graph label="Gyroscope" labelX="Time (s)" labelY="Angular rate (rad/s)">
+      <graph label="Gyro X" labelX="Time (s)" labelY="Angular rate (rad/s)">
         <input axis="x">time</input>
         <input axis="y">gyrX</input>
+      </graph>
+      <graph label="Gyro Y" labelX="Time (s)" labelY="Angular rate (rad/s)">
+        <input axis="x">time</input>
         <input axis="y">gyrY</input>
+      </graph>
+      <graph label="Gyro Z" labelX="Time (s)" labelY="Angular rate (rad/s)">
+        <input axis="x">time</input>
         <input axis="y">gyrZ</input>
       </graph>
       <value label="Accel X (m/s²)" buffer="accX" precision="3"/>
