@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <experiment name="IMU Streamer" shortName="IMUStreamer">
 
-  <!-- Privacy URL (required) -->
   <network>
     <connection id="imuStream"
                 privacy="https://raw.githubusercontent.com/VRChat-LoopyBanana58/All2OSC/refs/heads/main/privacy.txt"
@@ -9,32 +8,37 @@
                 address="http://100.80.78.30:5000"
                 autoConnect="true"
                 interval="0.1">
-      <!-- Send last accelerometer buffer -->
-      <send id="accel_x" type="buffer" datatype="number">accelerometer_x</send>
-      <send id="accel_y" type="buffer" datatype="number">accelerometer_y</send>
-      <send id="accel_z" type="buffer" datatype="number">accelerometer_z</send>
-      <!-- Send last gyroscope buffer -->
-      <send id="gyro_x" type="buffer" datatype="number">gyroscope_x</send>
-      <send id="gyro_y" type="buffer" datatype="number">gyroscope_y</send>
-      <send id="gyro_z" type="buffer" datatype="number">gyroscope_z</send>
+
+      <send id="accel_x" type="buffer" datatype="number">accX</send>
+      <send id="accel_y" type="buffer" datatype="number">accY</send>
+      <send id="accel_z" type="buffer" datatype="number">accZ</send>
+
+      <send id="gyro_x" type="buffer" datatype="number">gyrX</send>
+      <send id="gyro_y" type="buffer" datatype="number">gyrY</send>
+      <send id="gyro_z" type="buffer" datatype="number">gyrZ</send>
     </connection>
   </network>
 
   <data>
-    <!-- Read raw accelerometer sensor -->
-    <sensor id="accelerometer_x">accelerometer_x</sensor>
-    <sensor id="accelerometer_y">accelerometer_y</sensor>
-    <sensor id="accelerometer_z">accelerometer_z</sensor>
+    <!-- Accelerometer -->
+    <sensor type="accelerometer">
+      <output component="x" buffer="accX"/>
+      <output component="y" buffer="accY"/>
+      <output component="z" buffer="accZ"/>
+    </sensor>
 
-    <!-- Read raw gyroscope sensor -->
-    <sensor id="gyroscope_x">gyroscope_x</sensor>
-    <sensor id="gyroscope_y">gyroscope_y</sensor>
-    <sensor id="gyroscope_z">gyroscope_z</sensor>
+    <!-- Gyroscope -->
+    <sensor type="gyroscope">
+      <output component="x" buffer="gyrX"/>
+      <output component="y" buffer="gyrY"/>
+      <output component="z" buffer="gyrZ"/>
+    </sensor>
   </data>
 
-  <view>
-    <graph title="Accelerometer X" buffer="accelerometer_x" />
-    <graph title="Gyroscope X" buffer="gyroscope_x" />
+  <!-- REQUIRED: at least one valid view -->
+  <view label="Status">
+    <value label="Accel X" buffer="accX"/>
+    <value label="Gyro X" buffer="gyrX"/>
   </view>
 
 </experiment>
